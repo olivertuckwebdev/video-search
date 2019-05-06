@@ -5,11 +5,16 @@ import api from '../api/api';
 class App extends Component {
   state = { searchTerm: '', searchResults: [] };
 
-  onSearchSubmit = searchTerm => {
-    api.get('/search', {
+  onSearchSubmit = async searchTerm => {
+    const response = await api.get('/search', {
       params: {
         q: searchTerm
       }
+    });
+
+    this.setState({
+      searchResults: response.data.items,
+      searchTerm
     });
   };
 
