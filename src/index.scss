@@ -2,4 +2,7 @@ $theme-colors: (
   'primary': #ff0000
 );
 
+$link-color: #000;
+$link-hover-decoration: none;
+
 @import '~bootstrap/scss/bootstrap.scss';

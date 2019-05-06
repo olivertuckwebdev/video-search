@@ -30,7 +30,7 @@ class App extends Component {
               <Video />
             </Col>
             <Col md={4}>
-              <SearchResults />
+              <SearchResults searchResults={this.state.searchResults} />
             </Col>
           </Row>
         </Container>

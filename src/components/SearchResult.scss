@@ -1,0 +1,15 @@
+.search-result {
+  .title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .author {
+    font-size: 0.875rem;
+  }
+
+  &:not(:first-of-type) {
+    margin-top: 1rem;
+  }
+}
