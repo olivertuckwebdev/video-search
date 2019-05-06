@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Col } from 'reactstrap';
-import api from '../api/api';
+import apiSearchList from '../api/apiSearchList';
+import apiVideoList from '../api/apiVideoList';
 import Header from './Header';
 import Video from './Video';
 import SearchResults from './SearchResults';
@@ -9,14 +10,24 @@ class App extends Component {
   state = { searchTerm: '', searchResults: [] };
 
   onSearchSubmit = async searchTerm => {
-    const response = await api.get('/search', {
+    const searchListResponse = await apiSearchList.get('/search', {
       params: {
         q: searchTerm
       }
     });
 
+    const searchListIds = searchListResponse.data.items
+      .map(({ id }) => id.videoId)
+      .join();
+
+    const videoListResponse = await apiVideoList.get('/videos', {
+      params: {
+        id: searchListIds
+      }
+    });
+
     this.setState({
-      searchResults: response.data.items,
+      searchResults: videoListResponse.data.items,
       searchTerm
     });
   };

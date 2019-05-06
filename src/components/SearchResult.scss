@@ -2,10 +2,10 @@
   .title {
     overflow: hidden;
     text-overflow: ellipsis;
-    white-space: nowrap;
   }
 
-  .author {
+  .author,
+  .views {
     font-size: 0.875rem;
   }
 
