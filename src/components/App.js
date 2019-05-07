@@ -49,7 +49,7 @@ class App extends Component {
   isSearch = () => {
     if (this.state.searchTerm) {
       return (
-        <Container className="mt-5">
+        <Container className="py-5">
           <Row>
             <Col md={8}>
               <main>

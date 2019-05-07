@@ -1,6 +1,20 @@
 .video {
+  .channel-info {
+    font-size: 0.875rem;
+  }
+
   .description {
     font-size: 0.875rem;
     white-space: pre-line;
+
+    &.closed {
+      height: 4rem;
+      overflow: hidden;
+    }
+  }
+
+  .toggle-full-description {
+    font-size: 0.875rem;
+    cursor: pointer;
   }
 }
