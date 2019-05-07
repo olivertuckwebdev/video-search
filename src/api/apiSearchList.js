@@ -4,7 +4,7 @@ export default axios.create({
   baseURL: 'https://www.googleapis.com/youtube/v3',
   params: {
     part: 'snippet',
-    maxResults: 3,
+    maxResults: 2,
     type: 'video',
     key: process.env.REACT_APP_API_KEY
   }

@@ -37,8 +37,6 @@ class App extends Component {
   };
 
   updateSelectedResult = id => {
-    console.log(id);
-
     const selectedResult = this.state.searchResults.filter(
       result => result.id === id
     );
@@ -54,9 +52,11 @@ class App extends Component {
         <Container className="mt-5">
           <Row>
             <Col md={8}>
-              <Router>
-                <Video path="/video/:id" data={this.state.selectedResult} />
-              </Router>
+              <main>
+                <Router>
+                  <Video path="/video/:id" data={this.state.selectedResult} />
+                </Router>
+              </main>
             </Col>
             <Col md={4}>
               <SearchResults

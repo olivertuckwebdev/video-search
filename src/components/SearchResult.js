@@ -34,7 +34,7 @@ const SearchResult = props => {
         <Col md={6} className="pl-3">
           <h3 className="title h6">{props.title}</h3>
           <h4 className="author text-secondary">{props.author}</h4>
-          <span className="views font-weight-bold text-secondary">
+          <span className="views font-weight-bold ">
             {abbreviateNumber(props.views)}
           </span>
         </Col>
