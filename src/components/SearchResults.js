@@ -12,6 +12,7 @@ const SearchResults = props => {
         title={snippet.title}
         author={snippet.channelTitle}
         views={statistics.viewCount}
+        updateSelectedResult={props.updateSelectedResult}
       />
     );
   });

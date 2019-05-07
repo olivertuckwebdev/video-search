@@ -1,7 +1,11 @@
 import React from 'react';
 
 const Video = props => {
-  return <main>Video</main>;
+  return (
+    <main>
+      <h1>{props.data.snippet.title}</h1>
+    </main>
+  );
 };
 
 export default Video;

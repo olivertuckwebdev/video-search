@@ -17,8 +17,16 @@ const SearchResult = props => {
     return formatted + postfix;
   }
 
+  const linkOnClick = () => {
+    props.updateSelectedResult(props.id);
+  };
+
   return (
-    <Link to={`/video/${props.id}`} className="search-result d-block">
+    <Link
+      to={`/video/${props.id}`}
+      onClick={linkOnClick}
+      className="search-result d-block"
+    >
       <Row noGutters>
         <Col md={6}>
           <img src={props.thumbnail} alt={props.alt} className="img-fluid" />

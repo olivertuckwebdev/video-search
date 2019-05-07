@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router } from '@reach/router';
+import { Router, navigate } from '@reach/router';
 import { Container, Row, Col } from 'reactstrap';
 import apiSearchList from '../api/apiSearchList';
 import apiVideoList from '../api/apiVideoList';
@@ -8,7 +8,7 @@ import Video from './Video';
 import SearchResults from './SearchResults';
 
 class App extends Component {
-  state = { searchTerm: '', searchResults: [] };
+  state = { searchTerm: '', searchResults: [], selectedResult: null };
 
   onSearchSubmit = async searchTerm => {
     const searchListResponse = await apiSearchList.get('/search', {
@@ -29,7 +29,22 @@ class App extends Component {
 
     this.setState({
       searchResults: videoListResponse.data.items,
-      searchTerm
+      searchTerm,
+      selectedResult: videoListResponse.data.items[0]
+    });
+
+    navigate(`/video/${this.state.selectedResult.id}`);
+  };
+
+  updateSelectedResult = id => {
+    console.log(id);
+
+    const selectedResult = this.state.searchResults.filter(
+      result => result.id === id
+    );
+
+    this.setState({
+      selectedResult: selectedResult[0]
     });
   };
 
@@ -40,11 +55,14 @@ class App extends Component {
           <Row>
             <Col md={8}>
               <Router>
-                <Video path="/video/:id" />
+                <Video path="/video/:id" data={this.state.selectedResult} />
               </Router>
             </Col>
             <Col md={4}>
-              <SearchResults searchResults={this.state.searchResults} />
+              <SearchResults
+                searchResults={this.state.searchResults}
+                updateSelectedResult={this.updateSelectedResult}
+              />
             </Col>
           </Row>
         </Container>
