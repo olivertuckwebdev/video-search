@@ -28,10 +28,10 @@ const SearchResult = props => {
       className="search-result d-block"
     >
       <Row noGutters>
-        <Col md={6}>
+        <Col sm={6}>
           <img src={props.thumbnail} alt={props.alt} className="img-fluid" />
         </Col>
-        <Col md={6} className="pl-3">
+        <Col sm={6} className="pl-sm-3 mt-3 mt-sm-0">
           <h3 className="title h6 text-body">{props.title}</h3>
           <h4 className="author text-secondary">{props.author}</h4>
           <span className="views font-weight-bold text-body">

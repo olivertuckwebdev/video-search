@@ -64,7 +64,7 @@ class App extends Component {
       return (
         <Container className="py-5">
           <Row>
-            <Col md={8}>
+            <Col lg={8}>
               <main>
                 <Router>
                   <Video
@@ -75,7 +75,7 @@ class App extends Component {
                 </Router>
               </main>
             </Col>
-            <Col md={4}>
+            <Col lg={4} className="mt-4 mt-lg-0">
               <SearchResults
                 searchResults={this.state.searchResults}
                 updateSelectedResult={this.updateSelectedResult}
