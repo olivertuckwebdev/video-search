@@ -7,8 +7,8 @@ const SearchResults = props => {
       <SearchResult
         key={id}
         id={id}
-        ediu
-        thumbnail={snippet.thumbnails.high.url}
+        thumbnail={snippet.thumbnails.medium.url}
+        thumbnailHigh={snippet.thumbnails.high.url}
         alt={snippet.title}
         title={snippet.title}
         author={snippet.channelTitle}

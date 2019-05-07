@@ -29,7 +29,16 @@ const SearchResult = props => {
     >
       <Row noGutters>
         <Col sm={6}>
-          <img src={props.thumbnail} alt={props.alt} className="img-fluid" />
+          <img
+            src={props.thumbnail}
+            alt={props.alt}
+            className="img-fluid d-none d-lg-inline"
+          />
+          <img
+            src={props.thumbnailHigh}
+            alt={props.alt}
+            className="img-fluid d-lg-none"
+          />
         </Col>
         <Col sm={6} className="pl-sm-3 mt-3 mt-sm-0">
           <h3 className="title h6 text-body">{props.title}</h3>
