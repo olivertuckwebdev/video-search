@@ -6,6 +6,7 @@ const SearchResults = props => {
     return (
       <SearchResult
         key={id}
+        id={id}
         thumbnail={snippet.thumbnails.medium.url}
         alt={snippet.title}
         title={snippet.title}

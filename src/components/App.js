@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Router } from '@reach/router';
 import { Container, Row, Col } from 'reactstrap';
 import apiSearchList from '../api/apiSearchList';
 import apiVideoList from '../api/apiVideoList';
@@ -38,7 +39,9 @@ class App extends Component {
         <Container className="mt-5">
           <Row>
             <Col md={8}>
-              <Video />
+              <Router>
+                <Video path="/video/:id" />
+              </Router>
             </Col>
             <Col md={4}>
               <SearchResults searchResults={this.state.searchResults} />

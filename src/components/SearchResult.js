@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from '@reach/router';
 import { Row, Col } from 'reactstrap';
 import './SearchResult.scss';
 
@@ -17,7 +18,7 @@ const SearchResult = props => {
   }
 
   return (
-    <a href="/" className="search-result d-block">
+    <Link to={`/video/${props.id}`} className="search-result d-block">
       <Row noGutters>
         <Col md={6}>
           <img src={props.thumbnail} alt={props.alt} className="img-fluid" />
@@ -30,7 +31,7 @@ const SearchResult = props => {
           </span>
         </Col>
       </Row>
-    </a>
+    </Link>
   );
 };
 
