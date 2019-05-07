@@ -71,7 +71,7 @@ class App extends Component {
   };
 
   updateSelectedResult = id => {
-    // Get the id of the clicked result and retrieve the search results pertaining to that id
+    // Get the id of the clicked result and retrieve the search result pertaining to that id
     const selectedResult = this.state.searchResults.filter(
       result => result.id === id
     );
