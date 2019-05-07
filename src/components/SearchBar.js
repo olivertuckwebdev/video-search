@@ -14,7 +14,7 @@ class SearchBar extends Component {
 
   render() {
     return (
-      <Form onSubmit={this.onFormSubmit}>
+      <Form onSubmit={this.onFormSubmit} action="">
         <Input
           type="search"
           placeholder="Search"
