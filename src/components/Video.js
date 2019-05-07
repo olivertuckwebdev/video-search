@@ -45,13 +45,22 @@ class Video extends Component {
           </span>
         </header>
         <div className="py-3 border-bottom">
-          <div className="channel-info">
-            <p className="mb-0 font-weight-bold">
-              {this.props.data.snippet.channelTitle}
-            </p>
-            <p className="mb-0 text-secondary">
-              {this.formatDate(this.props.data.snippet.publishedAt)}
-            </p>
+          <div className="channel-info d-flex align-items-center">
+            <img
+              src={this.props.channelData.snippet.thumbnails.medium.url}
+              alt={this.props.channelData.snippet.title}
+              width={48}
+              height={48}
+              className="rounded-circle"
+            />
+            <div className="pl-2">
+              <p className="mb-0 font-weight-bold">
+                {this.props.channelData.snippet.title}
+              </p>
+              <p className="mb-0 text-secondary">
+                {this.formatDate(this.props.data.snippet.publishedAt)}
+              </p>
+            </div>
           </div>
           <div
             className={`description mt-3 ${

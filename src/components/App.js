@@ -3,12 +3,18 @@ import { Router, navigate } from '@reach/router';
 import { Container, Row, Col } from 'reactstrap';
 import apiSearchList from '../api/apiSearchList';
 import apiVideoList from '../api/apiVideoList';
+import apiChannelList from '../api/apiChannelList';
 import Header from './Header';
 import Video from './Video';
 import SearchResults from './SearchResults';
 
 class App extends Component {
-  state = { searchTerm: '', searchResults: [], selectedResult: null };
+  state = {
+    searchTerm: '',
+    searchResults: [],
+    selectedResult: null,
+    selectedResultChannel: null
+  };
 
   onSearchSubmit = async searchTerm => {
     const searchListResponse = await apiSearchList.get('/search', {
@@ -27,10 +33,17 @@ class App extends Component {
       }
     });
 
+    const channelListResponse = await apiChannelList.get('/channels', {
+      params: {
+        id: videoListResponse.data.items[0].snippet.channelId
+      }
+    });
+
     this.setState({
       searchResults: videoListResponse.data.items,
       searchTerm,
-      selectedResult: videoListResponse.data.items[0]
+      selectedResult: videoListResponse.data.items[0],
+      selectedResultChannel: channelListResponse.data.items[0]
     });
 
     navigate(`/video/${this.state.selectedResult.id}`);
@@ -54,7 +67,11 @@ class App extends Component {
             <Col md={8}>
               <main>
                 <Router>
-                  <Video path="/video/:id" data={this.state.selectedResult} />
+                  <Video
+                    path="/video/:id"
+                    data={this.state.selectedResult}
+                    channelData={this.state.selectedResultChannel}
+                  />
                 </Router>
               </main>
             </Col>
